@@ -14,3 +14,8 @@ $app->group('/api/gmail/{action}', function () {
     $this->post('', $rController . ':create');
     $this->post('/c/{so_id}', $rController . ':update');
 })->add('authGuard');
+
+$app->group('/aipmail/gmail/token', function () {
+    $rController = 'UserFrosting\Sprinkle\ApiMail\Controller\Gmail\Gmailer';
+    $this->get('', $rController . ':getOauthToken');
+})->add('authGuard');
