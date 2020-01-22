@@ -200,9 +200,11 @@ class Gmailer
      */
     public function send(MailMessage $message, $clearRecipients = true)
     {
+        Debug::debug("Line 203 Gmailer initiating message");
         $this->createMessage($message);
         // Try to send the mail.  Will throw an exception on failure.
         $this->phpMailer->send();
+        Debug::debug("Line 207 Gmailer After Send Command");
 
         // Clear recipients from the PHPMailer object for this iteration,
         // so that we can use the same object for other emails.
