@@ -159,17 +159,6 @@ class GmailController extends SimpleController
         $this->sendGmailMessage($service, $user, $message);
     }
 
-    public function createMailSwift($subject, $to, $body, $cc = '')
-    {
-        $swiftMessage = new Swift_Message($subject);
-        $swiftMessage->setTo([$to]);
-        if ($cc != '') {
-            $swiftMessage->setCc([$cc]);
-        }
-        $swiftMessage->setBody($body);
-        $validMessageBody = $swiftMessage->toString();
-    }
-
     public function sendUfMail(MailMessage $message)
     {
         $client = $this->getClient();
