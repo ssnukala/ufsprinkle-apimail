@@ -22,7 +22,7 @@ return [
     * ----------------------------------------------------------------------
     * See https://learn.userfrosting.com/mail/the-mailer-service
     */
-    'mail'    => [
+    'gmail'    => [
         'mailer'          => 'smtp', // Set to one of 'smtp', 'mail', 'qmail', 'sendmail'
         'host'            => getenv('SMTP_HOST') ?: null,
         'port'            => 587,
@@ -39,6 +39,5 @@ return [
             'isHtml'    => true,
             'Timeout'   => 15,
         ],
-    ],
-
+    ]
 ];

@@ -9,7 +9,7 @@ use Google_Service_Gmail_Draft;
 use Google_Service_Gmail;
 use Google_Client;
 use UserFrosting\Sprinkle\Core\Mail\MailMessage;
-use UserFrosting\Sprinkle\Core\Mail\Mailer;
+//use UserFrosting\Sprinkle\ApiMail\Controller\Gmail\Gmailer;
 use Swift_Message;
 //use PHPMailer\PHPMailer\PHPMailer;
 
@@ -184,5 +184,10 @@ class GmailController extends SimpleController
         $encmesg = strtr(base64_encode($mailcontent), array('+' => '-', '/' => '_'));
         $thismesg->setRaw($encmesg);
         $this->sendGmailMessage($service, $user, $thismesg);
+    }
+
+    public function getOauthToken($request, $response, $args)
+    {
+        $this->ci->gmailer->getOauthToken();
     }
 }

@@ -15,6 +15,7 @@ use Dotenv\Exception\InvalidPathException;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Interop\Container\ContainerInterface;
 use UserFrosting\Sprinkle\ApiMail\Controller\Gmail\Gmailer;
+use UserFrosting\Sprinkle\Core\Facades\Debug;
 
 /**
  * UserFrosting APIMail services provider.
@@ -39,8 +40,8 @@ class ServicesProvider
          * @return \UserFrosting\Sprinkle\Core\Mail\Mailer
          */
         $container['gmailer'] = function ($c) {
-            $mailer = new Gmailer($c->mailLogger, $c->config['mail']);
-
+            $mailer = new Gmailer($c->mailLogger, $c->config['gmail']);
+            Debug::debug("Line 44 ServiceProvider config gmail is ", $c->config['gmail']);
             // Use UF debug settings to override any service-specific log settings.
             if (!$c->config['debug.smtp']) {
                 $mailer->getPhpMailer()->SMTPDebug = 0;
