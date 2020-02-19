@@ -41,7 +41,7 @@ class ServicesProvider
          */
         $container['gmailer'] = function ($c) {
             $mailer = new Gmailer($c->mailLogger, $c->config['gmail']);
-            Debug::debug("Line 44 ServiceProvider config gmail is ", $c->config['gmail']);
+            //Debug::debug("Line 44 ServiceProvider config gmail is ", $c->config['gmail']);
             // Use UF debug settings to override any service-specific log settings.
             if (!$c->config['debug.smtp']) {
                 $mailer->getPhpMailer()->SMTPDebug = 0;
