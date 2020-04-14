@@ -13,7 +13,7 @@ namespace UserFrosting\Sprinkle\ApiMail\ServicesProvider;
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use UserFrosting\Sprinkle\ApiMail\Controller\Gmail\Gmailer;
 use UserFrosting\Sprinkle\Core\Facades\Debug;
 
